@@ -11,7 +11,7 @@ import path from "path";
 
 const app = express();
 
-//configurando parte visual do chat, para usar html nas rotas
+//Configurando view do chat, para usar html nas rotas
 app.use(express.static(path.join(__dirname, "..", "public")));
 app.set("views", path.join(__dirname, "..", "public"));
 app.engine("html", require("ejs").renderFile);
