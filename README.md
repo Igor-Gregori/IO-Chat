@@ -1,3 +1,3 @@
-<h1 align="center">:computer: IO Chat :green_heart:</h1>
+<h1 align="center">👨‍🚀 IO Chat 💻</h1>
 
 🚧 Under construction ...
