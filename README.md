@@ -1,2 +1,3 @@
-# IO-Chat
-Simple chat application, involving io socket concepts
+<h1 align="center">:computer: IO Chat :green_heart:</h1>
+
+🚧 Under construction ...
