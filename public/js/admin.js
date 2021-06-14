@@ -18,6 +18,27 @@ socket.on("admin_list_all_users", (connections) => {
   });
 });
 
+socket.on("admin_receive_message", (data) => {
+  const connection = openConnections.find(
+    (connection) => connection.socket_id = data.socket_id
+  );
+
+  const divMessages = document.getElementById(
+    `allMessages${connection.user_id}`
+  );
+
+  const messageDiv = document.createElement("div");
+
+  messageDiv.className = "admin_message_client";
+  messageDiv.innerHTML = `<span>${connection.user.email}</span>`;
+  messageDiv.innerHTML += `<span>${data.message.text}</span>`;
+  messageDiv.innerHTML += `<span class="admin_date">${dayjs(
+    data.message.created_at
+  ).format("DD/MM/YYYY HH:mm:ss")}</span>`;
+
+  divMessages.appendChild(messageDiv);
+});
+
 function call(id) {
   const connection = openConnections.find(
     (connection) => connection.socket_id === id
@@ -35,6 +56,8 @@ function call(id) {
   const params = {
     user_id: connection.user_id,
   };
+
+  socket.emit("admin_in_call_to_user", params);
 
   socket.emit("admin_list_messages_by_user", params, (messages) => {
     const divMessages = document.getElementById(
@@ -63,4 +86,27 @@ function call(id) {
       divMessages.appendChild(messageDiv);
     });
   });
+}
+
+function sendMessage(user_id) {
+  const text = document.getElementById(`send_message_${user_id}`).value;
+  const params = {
+    text,
+    user_id,
+  };
+
+  socket.emit("admin_send_message", params);
+
+  const divMessages = document.getElementById(`allMessages${user_id}`);
+  const messageDiv = document.createElement("div");
+
+  messageDiv.className = "admin_message_admin";
+  messageDiv.innerHTML = `Atendente: <span>${text}</span>`;
+  messageDiv.innerHTML += `<span class="admin_date">${dayjs().format(
+    "DD/MM/YYYY HH:mm:ss"
+  )}</span>`;
+
+  divMessages.appendChild(messageDiv);
+
+  document.getElementById(`send_message_${user_id}`).value = "";
 }

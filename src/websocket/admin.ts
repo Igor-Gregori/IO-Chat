@@ -18,4 +18,38 @@ io.on("connect", async (socket) => {
 
     callback(allMessages);
   });
+
+  socket.on("admin_send_message", async (params) => {
+    const { text, user_id } = params;
+
+    await messagesService.create({
+      text,
+      user_id,
+      admin_id: socket.id,
+    });
+
+    const connection = await connectionsService.findByUserId(user_id);
+
+    io.to(connection.socket_id).emit("admin_send_to_client", {
+      text,
+      socket_id: socket.id,
+    });
+  });
+
+  socket.on("admin_in_call_to_user", async (params) => {
+    const { user_id } = params;
+
+    const connection_params = {
+      user_id,
+      admin_id: socket.id,
+    };
+    const connection = await connectionsService.updateAdminId(
+      connection_params
+    );
+
+    const allConnectionsWithoutAdmin =
+      await connectionsService.findAllWithoutAdmin();
+
+    io.emit("admin_list_all_users", allConnectionsWithoutAdmin);
+  });
 });

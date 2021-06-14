@@ -22,6 +22,7 @@ routes.get("/settings/:username", settingsController.findByUsername);
 routes.put("/settings/:username", settingsController.update);
 
 routes.post("/users", usersController.create);
+routes.get("/users", usersController.findAll);
 
 routes.post("/messages", messagesController.create);
 routes.get("/messages/:id", messagesController.showByUser);

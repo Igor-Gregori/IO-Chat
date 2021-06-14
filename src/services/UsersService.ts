@@ -27,6 +27,11 @@ class UsersService {
     return user;
   }
 
+  async findAll(){
+    const user = await this.usersRepository.find();
+    return user;
+  }
+
   async findByEmail(email: string) {
     const user = await this.usersRepository.findOne({
       email,
