@@ -52,6 +52,7 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
         document.getElementById("messages").innerHTML += rendered;
       }
     });
+    scrollToBottom();
   });
 
   socket.on("admin_send_to_client", (message) => {
@@ -63,31 +64,52 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
     });
 
     document.getElementById("messages").innerHTML += rendered;
+    scrollToBottom();
   });
 });
 
 document
   .querySelector("#send_message_button")
-  .addEventListener("click", (event) => {
-    const text = document.getElementById("message_user").value;
+  .addEventListener("click", sendMessage);
 
-    const params = {
-      text,
-      socket_admin_id,
-    };
-
-    socket.emit("client_send_to_admin", params);
-
-    const template_client = document.getElementById(
-      "message-user-template"
-    ).innerHTML;
-
-    const rendered = Mustache.render(template_client, {
-      message: text,
-      email: user_email,
-    });
-
-    document.getElementById("messages").innerHTML += rendered;
-
-    document.getElementById("message_user").value = "";
+document
+  .getElementById("message_user")
+  .addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      sendMessage();
+    }
   });
+
+function sendMessage(event) {
+  const text = document.getElementById("message_user").value;
+
+  if (text === "") {
+    return;
+  }
+
+  const params = {
+    text,
+    socket_admin_id,
+  };
+
+  socket.emit("client_send_to_admin", params);
+
+  const template_client = document.getElementById(
+    "message-user-template"
+  ).innerHTML;
+
+  const rendered = Mustache.render(template_client, {
+    message: text,
+    email: user_email,
+  });
+
+  document.getElementById("messages").innerHTML += rendered;
+  document.getElementById("message_user").value = "";
+
+  scrollToBottom();
+}
+
+function scrollToBottom() {
+  var element = document.getElementById("text_support");
+  element.scrollTop = element.scrollHeight;
+}

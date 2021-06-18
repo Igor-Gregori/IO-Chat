@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: #f2f3f5;
 }
 
 .btn_support {
@@ -14,7 +14,7 @@ body {
   width: 153px;
   height: 56px;
 
-  background: #f2ae1b;
+  background: #00d154;
   border-radius: 68px;
   text-align: center;
   color: #fff;
@@ -45,8 +45,7 @@ body {
   width: 320px;
   height: 56px;
 
-  background: #f2ae1b;
-  border-radius: 16px 16px 0px 0px;
+  background: #00d154;
 
   display: flex;
   justify-content: space-between;
@@ -100,35 +99,36 @@ body {
 }
 
 .client .name {
+  color: #cec9c9;
+  font-size: 12px;
   text-align: end;
 }
 
 .client_message {
-  background: #f2ecfa;
+  background: #37cc73;
   padding: 20px 10px;
   margin: 10px 0;
   width: 250px;
   margin-left: 30px;
-  border-radius: 4px;
   line-height: 20px;
 }
 
 .client .message {
-  background: #f2ecfa;
-  /* background: #cecad4; */
-  padding: 20px 10px;
-  margin: 10px 0;
+  background: #37cc73;
+  padding: 10px;
   width: 250px;
   margin-left: 30px;
   border-radius: 4px;
   line-height: 20px;
+  color: #fff;
 }
 
 .text_support {
   border: 1px solid #cec9c9;
   max-height: 500px;
   overflow-y: scroll;
-  /* border-bottom: 0px; */
+
+  background-color: #fff;
 }
 
 .admin {
@@ -138,10 +138,14 @@ body {
 
 .admin .message {
   width: 230px;
-  background: #f2ecfa;
+  background: #2c6fdb;
   border-radius: 4px;
   padding: 10px;
   margin-left: 12px;
+}
+
+.admin_name {
+  font-size: 12px;
 }
 
 .message_send {
@@ -149,10 +153,13 @@ body {
   justify-content: space-between;
   border: 1px solid #cec9c9;
   align-items: center;
+  background-color: #fff;
 }
 
 .message_send input {
   outline: none;
+  border: none;
+
   height: 34px;
   align-items: center;
   width: 252px;
@@ -161,6 +168,15 @@ body {
 .send_message_button {
   display: flex;
   cursor: pointer;
+}
+
+.send_message_button img {
+  width: 42px;
+}
+
+.send_message_button:hover img {
+  background-color: #fafafa;
+  border-radius: 8px;
 }
 
 .line {
@@ -177,12 +193,12 @@ body {
   width: 290px;
   height: 115px;
 
+  margin-top: 5px;
   padding: 10px;
 
-  background: #ffffff;
+  background: #f2f3f5;
   border: 1px solid #dddddd;
   box-sizing: border-box;
-  border-radius: 4px;
 
   resize: none;
 }
@@ -196,21 +212,19 @@ body {
 .first_email input {
   border: 1px solid #dddddd;
   box-sizing: border-box;
-  border-radius: 4px;
   height: 42px;
   width: 290px;
 }
 
 input[type="text"]:focus {
-  outline: 1px solid #a8a8a8;
+  outline: none;
 }
 
 .btn_start_chat {
   width: 121px;
   height: 40px;
 
-  background: #f2ae1b;
-  border-radius: 4px;
+  background: #00d154;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -224,6 +238,14 @@ input[type="text"]:focus {
   border: 0;
   cursor: pointer;
   margin-right: 10px;
+
+  color: #b32a2a;
+  background-color: transparent;
+}
+
+.btn_cancel:hover {
+  color: red;
+  text-decoration: underline;
 }
 
 .button {
@@ -234,8 +256,12 @@ input[type="text"]:focus {
   padding: 10px;
 }
 
+#txt_help {
+  background-color: #fff;
+}
+
 #txt_help:focus {
-  outline: 1px solid #a8a8a8;
+  outline: none;
 }
 
 .charac_remaining {
@@ -264,8 +290,25 @@ input[type="text"]:focus {
 }
 
 .admin {
-  border: 1px solid #ededed;
   margin-top: 5px;
+  color: #fff;
+}
+
+.admin-template {
+  background-color: #fff;
+  margin: 10px;
+}
+
+.supports{
+  display: flex;
+  flex-direction: row;
+
+  position: absolute;
+  width: 500px;
+}
+
+.admin .admin_name {
+  color: #cec9c9;
 }
 
 .email {
@@ -276,15 +319,19 @@ input[type="text"]:focus {
 .admin_send_message {
   display: flex;
   flex-direction: row;
+
+  border-top: 2px solid #cec9c9;
 }
 
 .admin_send_message input {
   width: 300px;
   margin-right: 10px;
+
+  border: none;
 }
 
 .admin_send_message button {
-  width: 100px;
+  width: 120px;
   cursor: pointer;
 }
 
@@ -295,9 +342,10 @@ input[type="text"]:focus {
 
 .admin_message_admin {
   width: 300px;
-  background: #e0e0e0;
+  background: #2c6fdb;
+  color: #fff;
   padding: 10px;
-  margin: 12px;
+  margin: 12px 40px 12px 80px;
   display: flex;
   flex-direction: column;
 
@@ -312,10 +360,10 @@ input[type="text"]:focus {
 
 .admin_message_client {
   width: 300px;
-  background: #6f5eab;
+  background: #37cc73;
   padding: 10px;
   margin: 10px;
-  color: #eee;
+  color: #fff;
   display: flex;
   flex-direction: column;
 
@@ -323,13 +371,21 @@ input[type="text"]:focus {
   font-family: "Roboto", sans-serif;
 }
 
+.admin_user_email{
+  font-size: 12px;
+}
+
 .admin_date {
   font-size: 10px;
   color: #fff;
 }
 
+.div_in_support{
+  background: #5bde90;
+  width: 100%;
+}
+
 .in_support {
-  background: #8d7aef;
   color: #fff;
   font-size: 17px;
 }
@@ -342,4 +398,24 @@ input[type="text"]:focus {
 
 .btn_send:hover {
   opacity: 0.8;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
