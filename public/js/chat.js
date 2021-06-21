@@ -69,6 +69,12 @@ document.querySelector("#start_chat").addEventListener("click", (event) => {
 });
 
 document
+  .querySelector("#concluded_chat")
+  .addEventListener("click", (event) => {
+    console.log("Finalizar chat !")
+  });
+
+document
   .querySelector("#send_message_button")
   .addEventListener("click", sendMessage);
 

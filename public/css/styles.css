@@ -179,6 +179,19 @@ body {
   border-radius: 8px;
 }
 
+.concluded_chat{
+  cursor: pointer;
+}
+
+.concluded_chat img {
+  width: 42px;
+}
+
+.concluded_chat:hover img {
+  background-color: #0ff76c;
+  border-radius: 8px;
+}
+
 .line {
   border: 1px solid #e9e9e9;
   padding: 0;
@@ -239,7 +252,7 @@ input[type="text"]:focus {
   cursor: pointer;
   margin-right: 10px;
 
-  color: #b32a2a;
+  color: #00d154;
   background-color: transparent;
 }
 
@@ -277,7 +290,7 @@ input[type="text"]:focus {
 .btn_atd {
   cursor: pointer;
   color: #fff;
-  background: #b32a2a;
+  background: #00d154;
   border: none;
   height: 30px;
   padding: 10px;
@@ -299,7 +312,7 @@ input[type="text"]:focus {
   margin: 10px;
 }
 
-.supports{
+.supports {
   display: flex;
   flex-direction: row;
 
@@ -371,7 +384,7 @@ input[type="text"]:focus {
   font-family: "Roboto", sans-serif;
 }
 
-.admin_user_email{
+.admin_user_email {
   font-size: 12px;
 }
 
@@ -380,7 +393,7 @@ input[type="text"]:focus {
   color: #fff;
 }
 
-.div_in_support{
+.div_in_support {
   background: #5bde90;
   width: 100%;
 }
