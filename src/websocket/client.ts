@@ -15,6 +15,7 @@ io.on("connect", (socket: Socket) => {
   const usersService = new UsersService();
   const messagesService = new MessagesService();
 
+  /*
   socket.on("client_first_access", async (params) => {
     const socket_id = socket.id;
     const { text, email } = params as IParams;
@@ -59,6 +60,7 @@ io.on("connect", (socket: Socket) => {
     const allUsers = await connectionsService.findAllWithoutAdmin();
     io.emit("admin_list_all_users", allUsers);
   });
+  */
 
   socket.on("client_send_to_admin", async (params) => {
     const { text, socket_admin_id } = params;
