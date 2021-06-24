@@ -1,4 +1,4 @@
-import { getCustomRepository, Repository } from "typeorm";
+import { getCustomRepository, getRepository, Repository } from "typeorm";
 import { ConnectionsRepository } from "../repositories/ConnectionsRepository";
 import { Connection } from "../entities/Connection";
 
