@@ -51,8 +51,7 @@ class ConnectionsService {
     return connections;
   }
 
-  async updateAdminId(params) {
-    const { user_id, admin_id } = params;
+  async updateAdminId(user_id: string, admin_id: string) {
     await this.connectionsRepository
       .createQueryBuilder()
       .update(Connection)
