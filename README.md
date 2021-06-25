@@ -5,9 +5,9 @@
 
 Afazeres:
 
-- Reconstruir o html
+✔ Reconstruir o html
 
-- Refatorar o código do WS
+✔ Refatorar o código do WS
 
 - Avisar no chat quando o usuário/admin se desconectar
 
